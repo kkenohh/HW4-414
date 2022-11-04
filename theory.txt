@@ -1,0 +1,3 @@
+3a. R(ABCDE) decomposes into R1(ACE) to solve the CE -> A closure and R2(BD) to solve the D -> B closure.
+
+3b. S(ABCDE) decomposes into S1(AE), S2(ABC), and S3(BDE). My thought process is that there is no other possible way to split them because the closures join with different attributes. So to split them in order for a lossless decomp, I would have S1 and S2 have a common attribute of A, and S2 and S3 with a common attribute of B. Now all three closures are valid in BCNF.
