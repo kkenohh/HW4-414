@@ -1,20 +1,19 @@
--- vType has to be either a truck or a car
 CREATE TABLE Vehicle (
     licensePlate VARCHAR(7) PRIMARY KEY,
     year INT,
-    vType VARCHAR(5),
-    ownedBy INT REFERENCES Person
+    ownedBy INT REFERENCES Person,
+    iName VARCHAR(100) REFERENCES InsuranceCo,
+    maxLiability FLOAT
 );
 
 CREATE TABLE Car (
-    licensePlate VARCHAR(7) REFERENCES Vehicle,
+    licensePlate VARCHAR(7) PRIMARY KEY REFERENCES Vehicle,
     make VARCHAR(100)
 );
 
-CREATE TABLE Insures (
-    licensePlate VARCHAR(7) REFERENCES Vehicle,
-    iName VARCHAR(100) REFERENCES InsuranceCo,
-    maxLiability FLOAT
+CREATE TABLE Truck (
+    licensePlate VARCHAR(7) PRIMARY KEY REFERENCES Vehicle,
+    capacity INT
 );
 
 CREATE TABLE InsuranceCo (
@@ -28,19 +27,21 @@ CREATE TABLE Person (
 );
 
 CREATE TABLE Driver (
-    ssn INT REFERENCES Person,
+    ssn INT PRIMARY KEY REFERENCES Person,
     driverID INT
 );
 
 CREATE TABLE NonProfessionalDriver (
-
+    ssn INT PRIMARY KEY REFERENCES Driver,
+    drives VARCHAR(7) REFERENCES Car
 );
 
 CREATE TABLE ProfessionalDriver (
-
+    ssn INT PRIMARY KEY REFERENCES Driver,
+    operates VARCHAR(7) REFERENCES Truck,
     medicalHistory VARCHAR(MAX)
 );
 
 -- 2b The insures relationship is a separate table because it has it's own attribute
 
--- 2c 
+-- 2c "drives" is a many-to-many relationship, meaning multiple different people can drive the same car and multiple cars can be driven by the same person. "Operates" is a many-to-one relationship so one driver can have many trucks, but no truck can have more than one driver.
