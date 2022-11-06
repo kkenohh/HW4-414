@@ -1,6 +1,6 @@
-3a. R(ABCDE) decomposes into R1(ACE) to solve the CE -> A closure and R2(BD) to solve the D -> B closure.
+3a. R(ABCDE) decomposes into R1(ACE) and R2(BCDE) to solve CE -> A because {CE}+ = {ACE} and we join on CE with R2. Then we decompose R2(BCDE) into R3(BD) and R4(CDE) to solve D -> B because {D}+ = {DB} and all the functional dependencies in R4 are trivial. The final result is R1(ACE), R3(BD), and R4(CDE).
 
-3b. S(ABCDE) decomposes into S1(AE), S2(ABC), and S3(BDE). My thought process is that there is no other possible way to split them because the closures join with different attributes. So to split them in order for a lossless decomp, I would have S1 and S2 have a common attribute of A, and S2 and S3 with a common attribute of B. Now all three closures are valid in BCNF.
+3b. S(ABCDE) decomposes into S1(ABCE) and S2(BCD) to solve BC -> A since {BC}+ = {ABCE} and we join on BC, adding the leftover D attribute to S2. Then we decompose S1(ABCE) into S3(AE) and S4(ABC) to solve A -> E. We don't need to decompose S2(BCD) because all FDs are trivial. This leaves us with S3(AE), S4(ABC), and S2(BCD). 
 
 3c. 
 

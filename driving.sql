@@ -26,9 +26,14 @@ CREATE TABLE Person (
     name VARCHAR
 );
 
+CREATE TABLE Drives (
+    driverID INT REFERENCES Driver,
+    licensePlate VARCHAR(7) REFERENCES Car
+);
+
 CREATE TABLE Driver (
-    ssn INT PRIMARY KEY REFERENCES Person,
-    driverID INT
+    ssn INT REFERENCES Person,
+    driverID INT PRIMARY KEY
 );
 
 CREATE TABLE NonProfessionalDriver (
