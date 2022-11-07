@@ -4,3 +4,11 @@ CREATE TABLE Sales (
     month VARCHAR(20),
     price INT
 );
+
+
+-- month -> discount
+-- name -> price
+
+SELECT *
+FROM Sales
+ORDER BY name, discount;
