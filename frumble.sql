@@ -27,9 +27,16 @@ FROM Sales S, Sales S2
 WHERE S.month = S2.month AND 
       S.discount != S2.discount;
 
--- lots of rows shows that name and discount does not determine the month
-SELECT * 
+-- no rows where they have the same discount but different months,
+-- proves discount -> month
+SELECT *
 FROM Sales S, Sales S2
-WHERE S.name = S2.name AND
-      S.discount = S2.discount AND
-      S.month != S2.month;
+WHERE S.discount = S2.discount AND
+      S.month != S.month;
+
+-- lots of rows where the name is different but price is the same,
+-- does not prove price -> name
+SELECT *
+FROM Sales S, Sales S2
+WHERE S.price = S2.price AND
+      S.name != S2.name;

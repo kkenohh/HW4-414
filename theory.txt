@@ -1,9 +1,9 @@
 3a. R(ABCDE) decomposes into R1(ACE) and R2(BCDE) to solve CE -> A because {CE}+ = {ACE} and we join on CE with R2. Then we decompose R2(BCDE) into R3(BD) and R4(CDE) to solve D -> B because {D}+ = {DB} and all the functional dependencies in R4 are trivial. The final result is R1(ACE), R3(BD), and R4(CDE).
 
-3b. S(ABCDE) decomposes into S1(ABCE) and S2(BCD) to solve BC -> A since {BC}+ = {ABCE} and we join on BC, adding the leftover D attribute to S2. Then we decompose S1(ABCE) into S3(AE) and S4(ABC) to solve A -> E. We don't need to decompose S2(BCD) because all FDs are trivial. This leaves us with S3(AE), S4(ABC), and S2(BCD). 
+3b. S(ABCDE) decomposes into S1(ABCE) and S2(BCD) to solve BC -> A since {BC}+ = {ABCE} and we join on BC, adding the leftover D attribute to S2. Then we decompose S1(ABCE) into S3(AE) and S4(ABC) to solve A -> E. We can't decompose S2(BCD) because all FDs are trivial. This leaves us with S3(AE), S4(ABC), and S2(BCD). 
 
-3c. 
+3c. There can't be any non-trivial FDs because if there were, that would mean {X}+ = {X, Y} which is not {X}+ = {X}, meaning the subset is not closed.
 
-3d. 
+3d.
 
 3e.
