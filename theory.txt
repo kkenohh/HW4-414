@@ -4,6 +4,6 @@
 
 3c. There can't be any non-trivial FDs because if there were, that would mean {X}+ = {X, Y} which is not {X}+ = {X}, meaning the subset is not closed.
 
-3d.
+3d. 
 
 3e.
