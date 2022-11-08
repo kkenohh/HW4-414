@@ -46,6 +46,6 @@ CREATE TABLE ProfessionalDriver (
     medicalHistory VARCHAR(100)
 );
 
--- 2b The insures relationship is a many-to-one relationship meaning it can have many vehicles under the same insurance company so I added an insurance company name column to the Vehicles table. I chose to do it this way because each vehicle will have its own insurance company and since there will never be an instance where an insurance company will be by itself outside of the InsuranceCo table, it would reduce redundancy to add it to the Vehicle table.
+-- 2b The insures relationship is a many-to-one relationship meaning it can have many vehicles under the same insurance company. I added an insurance company name column to the Vehicles table because there can't be more than one insurance company per vehicle, that way there is no need for another table.
 
 -- 2c "drives" is a many-to-many relationship, meaning different people can drive the same car and multiple cars can be driven by the same person, so I need to use a separate table to reduce redundancy. "Operates" is a many-to-one relationship so one driver can have many trucks, but no truck can have more than one driver, so I don't need another table, but rather I add a column under the "many" table.
